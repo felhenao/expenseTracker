@@ -1,5 +1,5 @@
 {
-  "name": "budget-app",
+  "name": "expense-tracker",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "start": "webpack serve --mode development"
   },
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^5.0.2",
     "node-sass": "^5.0.0",
@@ -20,6 +21,7 @@
     "redux": "^4.0.5",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
+    "uuid": "^8.3.2",
     "validator": "^13.5.2",
     "webpack-dev-server": "^3.11.2"
   },

@@ -1,10 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+
 
 const ExpenseForm = (props) => {
     const [description, setDescription] = useState({descriptions: ''});
     const [note, setNote] = useState({note: ''});
     const [amount, setAmount] = useState({amount: ''})
+    const [createdAt, setCreatedAt] = useState({createdAt: moment()})
+    const [calendarFocused, setCalendarFocused] = useState({calendarFocused: false})
 
     const onDescriptionChange = (e) => {
         const description = e.target.value;
@@ -22,6 +29,15 @@ const ExpenseForm = (props) => {
             setAmount(amount);
         }
     }
+
+    const onDateChange = (createdAt) => {
+        setCreatedAt({createdAt});
+    }
+
+    const onFocusChange = ({ focused }) => {
+        setCalendarFocused({ calendarFocused: focused });
+    }
+    
     return (
         <div>
             <form>
@@ -32,12 +48,23 @@ const ExpenseForm = (props) => {
                     value={description.descriptions}
                     onChange={onDescriptionChange}
                 />
+                
                 <input
                     type="number"
                     placeholder="Amount"
-                    value={amount}
+                    value={amount.amount}
                     onChange={onAmountChange}
                 />
+
+                <SingleDatePicker
+                    date={createdAt.createdAt}
+                    onDateChange={onDateChange}
+                    focused={calendarFocused.calendarFocused}
+                    onFocusChange={onFocusChange}
+                    numberOfMonths={1}
+                    isOutsideRange={() => false}
+                />
+
                 <textarea
                     placeholder={description.description}
                     placeholder="Add note for your expense"
@@ -49,6 +76,5 @@ const ExpenseForm = (props) => {
         </div>
     )
 }
-
 
 export default ExpenseForm;

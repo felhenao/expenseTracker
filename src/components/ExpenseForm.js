@@ -12,35 +12,57 @@ const ExpenseForm = (props) => {
     const [amount, setAmount] = useState({amount: ''})
     const [createdAt, setCreatedAt] = useState({createdAt: moment()})
     const [calendarFocused, setCalendarFocused] = useState({calendarFocused: false})
+    const [error, setError] = useState({error: ''})
 
     const onDescriptionChange = (e) => {
         const description = e.target.value;
-        setDescription(description);
+        setDescription({descriptions: description});
     }
 
     const onNoteChange = (e) => {
         const note = e.target.value;
-        setNote(note);
+        setNote({note});
     }
 
     const onAmountChange = (e) => {
         const amount = e.target.value;
-        if (amount.match(/^\d*(\.\d{0,2})?$/)) {  //don't allow more than two decimal points
-            setAmount(amount);
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {  //don't allow more than two decimal points
+            setAmount({amount});
         }
     }
 
     const onDateChange = (createdAt) => {
-        setCreatedAt({createdAt});
+        if (createdAt) {
+            setCreatedAt({createdAt});      //must provide value
+        }
     }
 
     const onFocusChange = ({ focused }) => {
         setCalendarFocused({ calendarFocused: focused });
     }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        if (!description.descriptions || !amount.amount) {
+            setError({error: 'Please provide description and amount.'});
+
+        } else {
+            setError({error: ''});
+            props.onSubmit({
+                description: description.descriptions,
+                amount: parseFloat(amount.amount, 10) * 100,
+                createdAt: createdAt.createdAt.valueOf(),
+                note: note.note
+            })
+
+        }
+    }
     
     return (
         <div>
-            <form>
+            {error.error && <p>{error.error}</p>}
+            <form onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Description"
@@ -48,7 +70,7 @@ const ExpenseForm = (props) => {
                     value={description.descriptions}
                     onChange={onDescriptionChange}
                 />
-                
+
                 <input
                     type="number"
                     placeholder="Amount"

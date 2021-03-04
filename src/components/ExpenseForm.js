@@ -7,10 +7,10 @@ import 'react-dates/lib/css/_datepicker.css';
 
 
 const ExpenseForm = (props) => {
-    const [description, setDescription] = useState({descriptions: ''});
-    const [note, setNote] = useState({note: ''});
-    const [amount, setAmount] = useState({amount: ''})
-    const [createdAt, setCreatedAt] = useState({createdAt: moment()})
+    const [description, setDescription] = useState({descriptions: props.expense ? props.expense.description : ''});
+    const [note, setNote] = useState({note: props.expense ? props.expense.note : ''});
+    const [amount, setAmount] = useState({amount: props.expense ? (props.expense.amount / 100).toString() : ''})
+    const [createdAt, setCreatedAt] = useState({createdAt: props.expense ? moment(props.expense.createdAt) : moment()})
     const [calendarFocused, setCalendarFocused] = useState({calendarFocused: false})
     const [error, setError] = useState({error: ''})
 
@@ -88,7 +88,8 @@ const ExpenseForm = (props) => {
                 />
 
                 <textarea
-                    placeholder={description.description}
+                    type="text"
+                    value={note.note}
                     placeholder="Add note for your expense"
                     onChange={onNoteChange}
                 >

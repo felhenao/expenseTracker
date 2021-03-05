@@ -16,7 +16,7 @@ const ExpenseForm = (props) => {
 
     const onDescriptionChange = (e) => {
         const description = e.target.value;
-        setDescription({descriptions: description});
+        setDescription({ descriptions: description });
     }
 
     const onNoteChange = (e) => {

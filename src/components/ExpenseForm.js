@@ -3,8 +3,6 @@ import { useState } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
-
 
 const ExpenseForm = (props) => {
     const [description, setDescription] = useState({descriptions: props.expense ? props.expense.description : ''});
@@ -55,7 +53,6 @@ const ExpenseForm = (props) => {
                 createdAt: createdAt.createdAt.valueOf(),
                 note: note.note
             })
-
         }
     }
     

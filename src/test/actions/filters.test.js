@@ -48,11 +48,3 @@ test('should generate set sort by amount action object', () => {
     const action = sortByAmount();
     expect(action).toEqual({ type: 'SORT_BY_AMOUNT' })
 });
-
-// test('should generate set', () => {
-//     const action =;
-//     expect(action).toEqual({
-//         type: '',
-//     })
-// });
-// test('should generate set', () => {});

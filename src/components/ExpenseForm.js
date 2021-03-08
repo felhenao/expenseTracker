@@ -58,7 +58,7 @@ const ExpenseForm = (props) => {
     
     return (
         <div>
-            {error.error && <p>{error.error}</p>}
+            <error>{error.error && <p>{error.error}</p>}</error>
             <form onSubmit={onSubmit}>
                 <input
                     type="text"

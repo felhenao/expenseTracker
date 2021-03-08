@@ -24,8 +24,10 @@ const ExpenseForm = (props) => {
 
     const onAmountChange = (e) => {
         const amount = e.target.value;
-        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {  //don't allow more than two decimal points
-            setAmount({amount});
+        if (amount.match) {
+            if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/ )) {  //don't allow more than two decimal points
+                setAmount({amount});
+            }
         }
     }
 

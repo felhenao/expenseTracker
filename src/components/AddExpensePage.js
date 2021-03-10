@@ -7,8 +7,9 @@ export const AddExpensePage = (props) => (
     <div>
         <h1>Add Expense</h1>
         <ExpenseForm 
+            expense={props.expense}
             onSubmit={(expense) => {
-                props.onSubmit(expense);
+                props.addExpense(expense);
                 props.history.push('/'); //redirect to dashboard
             }}
         />
@@ -16,7 +17,7 @@ export const AddExpensePage = (props) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    onSubmit: (expense) => dispatch(addExpense(expense))
+    addExpense: (expense) => dispatch(addExpense(expense))
 }); //return dispatcher function extracted away from the component
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);

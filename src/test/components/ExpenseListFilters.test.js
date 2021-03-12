@@ -62,3 +62,17 @@ test('should sort by amount', () => {
     });
     expect(sortByAmount).toHaveBeenCalled();
 });
+
+test('should handle date changes', () => {
+    const startDate = moment(0).add(6, 'years');
+    const endDate = moment(0).add(9, 'years');
+    wrapper.find(DateRangePicker).prop('onDatesChange')({ startDate, endDate });
+    expect(setStartDate).toHaveBeenLastCalledWith(startDate);
+    expect(setEndDate).toHaveBeenLastCalledWith(endDate)
+});
+
+test('should handle date focus changes', () => {
+    const calendarFocused = 'endDate';
+    wrapper.find(DateRangePicker).prop('onFocusChange')(calendarFocused);
+    expect(wrapper.find(DateRangePicker).prop('focusedInput')).toBe(calendarFocused);
+});

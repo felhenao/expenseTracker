@@ -21,7 +21,7 @@ test('should render error for invalid form submission', () => {
     wrapper.find('form').simulate('submit', {
         preventDefault: () => {}
     });
-    expect(wrapper.find('error').length).toBeGreaterThan(0);
+    expect(wrapper.find('h3').length).toBeGreaterThan(0);
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -67,7 +67,7 @@ test('should call onSubmit prop for valid form submission', () => {
     wrapper.find('form').simulate('submit', {
         preventDefault: () => {}
     });
-    expect(wrapper.find('error').length).toBeGreaterThan(0)
+    expect(wrapper.find('h3').length).toBeGreaterThan(0)
     expect(onSubmitSpy).toHaveBeenLastCalledWith({
         description: expenses[0].description,
         amount: expenses[0].amount,

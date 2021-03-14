@@ -25,7 +25,7 @@ module.exports = {
       ]
     }]
   },
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'eval-cheap-module-source-map', 
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true //return index.html for all 404 routes

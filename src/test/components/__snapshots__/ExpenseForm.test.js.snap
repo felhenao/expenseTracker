@@ -2,7 +2,7 @@
 
 exports[`should render ExpenseForm correctly 1`] = `
 <div>
-  <error />
+  <h3 />
   <form
     onSubmit={[Function]}
   >
@@ -129,7 +129,7 @@ exports[`should render ExpenseForm correctly 1`] = `
 
 exports[`should render ExpenseForm correctly with expense data 1`] = `
 <div>
-  <error />
+  <h3 />
   <form
     onSubmit={[Function]}
   >
@@ -256,7 +256,7 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
 
 exports[`should render error for invalid form submission 1`] = `
 <div>
-  <error />
+  <h3 />
   <form
     onSubmit={[Function]}
   >
@@ -383,11 +383,11 @@ exports[`should render error for invalid form submission 1`] = `
 
 exports[`should render error for invalid form submission 2`] = `
 <div>
-  <error>
+  <h3>
     <p>
       Please provide description and amount.
     </p>
-  </error>
+  </h3>
   <form
     onSubmit={[Function]}
   >

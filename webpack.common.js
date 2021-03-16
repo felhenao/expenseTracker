@@ -9,7 +9,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Production',
       showErrors: true,
-      template: './public/index.html'
+      template: './public/index.html',
+      minify: false
       
     }),
   ],
@@ -18,5 +19,20 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  module: {
+    rules: [{
+      loader: 'babel-loader',
+      test: /\.js$/,
+      exclude: /node_modules/
+    }, {
+      test: /\.s?css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
+    }]
+
+   }
 };
 

@@ -8,6 +8,5 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
     historyApiFallback: true //return index.html for all 404 routes
-  
   }
 });

@@ -32,7 +32,11 @@ module.exports = {
         'sass-loader'
       ]
     }]
-
-   }
+   },
+  optimization: {
+    splitChunks: {   //llows us to extract common dependencies into an existing entry chunk or an entirely new chunk
+      chunks: 'all',
+  },
+},
 };
 

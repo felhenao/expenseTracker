@@ -1,11 +1,15 @@
-const path = require('path');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
-  entry: './src/app.js',
-  output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+
+module.exports = merge(common, {
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    historyApiFallback: true //return index.html for all 404 routes
   },
+
   module: {
     rules: [{
       test: /\.js$/,
@@ -25,9 +29,4 @@ module.exports = {
       ]
     }]
   },
-  devtool: 'eval-cheap-module-source-map', 
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    historyApiFallback: true //return index.html for all 404 routes
-  }
-};
+});

@@ -71,7 +71,7 @@ const ExpenseForm = (props) => {
                 />
 
                 <input
-                    type="number"
+                    type="text"
                     placeholder="Amount"
                     value={amount.amount}
                     onChange={onAmountChange}

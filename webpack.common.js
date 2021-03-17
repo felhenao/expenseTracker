@@ -34,7 +34,7 @@ module.exports = {
     }]
    },
   optimization: {
-    splitChunks: {   //llows us to extract common dependencies into an existing entry chunk or an entirely new chunk
+    splitChunks: {   //allows us to extract common dependencies into an existing entry chunk or an entirely new chunk
       chunks: 'all',
   },
 },

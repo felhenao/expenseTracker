@@ -6,8 +6,10 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack serve --open --config webpack.dev.js",
-    "test": "jest --config=jest.config.json"
+    "start-dev": "webpack serve --open --config webpack.dev.js",
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run start"
   },
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",

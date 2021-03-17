@@ -13,8 +13,6 @@
     "start": "node server/server.js"
   },
   "dependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^5.0.2",
     "express": "^4.17.1",
     "moment": "^2.29.1",
@@ -35,9 +33,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/preset-env": "^7.13.5",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",

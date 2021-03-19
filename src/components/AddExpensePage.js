@@ -5,7 +5,7 @@ import { addExpense } from '../actions/expenses';
 
 export const AddExpensePage = (props) => (
     <div>
-        <h1>Add Expense</h1>
+        <h3>Add Expense</h3>
         <ExpenseForm 
             expense={props.expense}
             onSubmit={(expense) => {

@@ -93,7 +93,7 @@ const ExpenseForm = (props) => {
                     onChange={onNoteChange}
                 >
                 </textarea>
-                <button>Add Exspense</button>
+                <button>Submit</button>
             </form>
         </div>
     )

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenses';
+import { startSetExpenses } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
@@ -18,14 +18,15 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('development mode');
 } 
 
-store.dispatch(addExpense({ description: 'water bill', amount: 99 }));
-store.dispatch(addExpense({ description: 'gas bill', createdAt: 1000 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 3000 }));
-
 const jsx = (
     <Provider store={store}>
         <AppRouter />
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('root'));
+ReactDOM.render(<p>loading...</p>, document.getElementById('root'));
+
+store.dispatch(startSetExpenses()).then(() => {
+    
+    ReactDOM.render(jsx, document.getElementById('root'));
+})

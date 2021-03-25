@@ -7,6 +7,9 @@
 - Select dates using the calendar
 - Show list of expenses and filter it by date or amount
 - Show total amount of expenses. The total can be filtered by date
+- Authentication and storage on firebase
+- Global state using Redux 
+- Local state using useState hook
 
 ### Tech
 - [React.js] -  [Node.js] - [Express.js] - [Redux] 

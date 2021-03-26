@@ -10,18 +10,17 @@ import  LoginPage from '../components/LoginPage';
 
 const AppRouter = () => (
     <BrowserRouter>
-    <div>
-        <Header/>
-        <Switch>
-            <Route path="/" component={LoginPage} exact={true}/>
-            <Route path="/dashboard" component={ExpenseDashboardPage} exact={true}/>
-            <Route path="/create" component={AddExpensePage} />
-            <Route path="/edit/:id" component={EditExpensePage} />
-            <Route path="/help" component={HelpPage} />
-            <Route component={NotFoundPage} />
-        </Switch>
-    </div>
-
+        <div>
+            <Header/>
+            <Switch>
+                <Route path="/" component={LoginPage} exact={true}/>
+                <Route path="/dashboard" component={ExpenseDashboardPage} exact={true}/>
+                <Route path="/create" component={AddExpensePage} />
+                <Route path="/edit/:id" component={EditExpensePage} />
+                <Route path="/help" component={HelpPage} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </div>
     </BrowserRouter>
 );
 

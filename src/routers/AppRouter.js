@@ -1,30 +1,60 @@
-import { Router, Route, Switch } from 'react-router-dom';
-import { createBrowserHistory } from "history";
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 import  ExpenseDashboardPage  from '../components/ExpenseDashboardPage';
 import  AddExpensePage  from '../components/AddExpensePage';
 import  EditExpensePage  from '../components/EditExpensePage';
 import  HelpPage  from '../components/HelpPage';
 import  NotFoundPage  from '../components/NotFoundPage';
-import  Header  from '../components/Header';
-import  LoginPage from '../components/LoginPage';
-
-export const history = createBrowserHistory();
+import { ProvideAuth, AuthButton, PrivateRoute, LoginPage } from '../actions/auth';
 
 const AppRouter = () => (
-    <Router history={history}>
-        <div>
-            <Header/>
-            <Switch>
-                <Route path="/" component={LoginPage} exact={true}/>
-                <Route path="/dashboard" component={ExpenseDashboardPage} exact={true}/>
-                <Route path="/create" component={AddExpensePage} />
-                <Route path="/edit/:id" component={EditExpensePage} />
-                <Route path="/help" component={HelpPage} />
-                <Route component={NotFoundPage} />
-            </Switch>
-        </div>
-    </Router>
+    <ProvideAuth>
+        <Router>
+            <div>
+                <AuthButton />
+                <ul>
+                    <li>
+                        <Link to="/dashboard">dashboard</Link>
+                    </li>
+                    <li>
+                        <Link to="/create">create</Link>
+                    </li>
+                    <li>
+                        <Link to="/help">help</Link>
+                    </li>
+                </ul>
+
+                <Switch>
+                    <Route exact path="/">
+                        <LoginPage />
+                    </Route>
+
+                    <PrivateRoute path="/dashboard">
+                        <ExpenseDashboardPage />
+                    </PrivateRoute>
+
+                    <PrivateRoute path="/create">
+                        <AddExpensePage />
+                    </PrivateRoute>
+
+                    <PrivateRoute path="/edit/:id">
+                        <EditExpensePage />
+                    </PrivateRoute>
+
+                    <Route path="/help">
+                        <HelpPage />
+                    </Route>
+
+                    <Route component={NotFoundPage} />
+                </Switch>
+            </div>
+        </Router>
+    </ProvideAuth>
 );
 
 export default AppRouter;

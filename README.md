@@ -26,7 +26,6 @@ yarn start
 ```
 
 ## Test 
-Note: all tests are passing
 ```bash
 yarn test
 ```

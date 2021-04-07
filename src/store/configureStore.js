@@ -11,7 +11,7 @@ export default () => {
           filters: filtersReducer,
           auth: authReducer
         }),
-        composeEnhancers(applyMiddleware(thunk))
+        applyMiddleware(thunk)
     );
     return store;
 };

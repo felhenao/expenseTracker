@@ -1,0 +1,23 @@
+.container {
+    background-color: $black;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-layout {
+    background-color: #181818;
+    border-radius: 3px;
+    text-align: center;
+    padding: $l-size $m-size;
+    width: 25rem;
+    height: 25rem;
+}
+
+h3 {
+    margin: 0 0 $m-size 0;
+    line-height: 1;
+}

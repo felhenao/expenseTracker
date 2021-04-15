@@ -1,6 +1,7 @@
 $brand-color: lime;
 * {
     color: $brand-color;
+    box-sizing: border-box;
 }
 html {
     font-size: 62.5%;

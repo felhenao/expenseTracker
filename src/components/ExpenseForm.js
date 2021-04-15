@@ -59,43 +59,44 @@ const ExpenseForm = (props) => {
     }
     
     return (
-        <div>
-            <h3>{error.error && <p>{error.error}</p>}</h3>
-            <form onSubmit={onSubmit}>
-                <input
-                    type="text"
-                    placeholder="Description"
-                    autoFocus
-                    value={description.descriptions}
-                    onChange={onDescriptionChange}
-                />
+        <form onSubmit={onSubmit} className="form">
+        {error.error && <p>{error.error}</p>}
+            <input
+                type="text"
+                placeholder="Description"
+                className="text-input"
+                autoFocus
+                value={description.descriptions}
+                onChange={onDescriptionChange}
+            />
 
-                <input
-                    type="text"
-                    placeholder="Amount"
-                    value={amount.amount}
-                    onChange={onAmountChange}
-                />
+            <input
+                type="text"
+                placeholder="Amount"
+                className="text-input"
+                value={amount.amount}
+                onChange={onAmountChange}
+            />
 
-                <SingleDatePicker
-                    date={createdAt.createdAt}
-                    onDateChange={onDateChange}
-                    focused={calendarFocused.calendarFocused}
-                    onFocusChange={onFocusChange}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false}
-                />
+            <SingleDatePicker
+                date={createdAt.createdAt}
+                onDateChange={onDateChange}
+                focused={calendarFocused.calendarFocused}
+                onFocusChange={onFocusChange}
+                numberOfMonths={1}
+                isOutsideRange={() => false}
+            />
 
-                <textarea
-                    type="text"
-                    value={note.note}
-                    placeholder="Add note for your expense"
-                    onChange={onNoteChange}
-                >
-                </textarea>
-                <button>Submit</button>
-            </form>
-        </div>
+            <textarea
+                type="text"
+                value={note.note}
+                className="textarea"
+                placeholder="Add note for your expense"
+                onChange={onNoteChange}
+            >
+            </textarea>
+            <button>Submit</button>
+        </form>
     )
 }
 

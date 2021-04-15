@@ -35,12 +35,14 @@ export const ExpenseListFilters = (props) => {
                 <div className="input-group__item">
                     <input 
                         type="text" 
+                        className="text-input"
+                        placeholder="Search expenses"
                         value={props.filters.text} 
                         onChange={onTextChange} />
                 </div>
 
                 <div className="input-group__item">
-                    <select value={props.filters.sortBy} onChange={onSortChange} >
+                    <select className="select" value={props.filters.sortBy} onChange={onSortChange} >
                         <option value="date">Date</option>
                         <option value="amount">Amount</option>
                     </select>

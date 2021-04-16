@@ -60,7 +60,7 @@ const ExpenseForm = (props) => {
     
     return (
         <form onSubmit={onSubmit} className="form">
-        {error.error && <p>{error.error}</p>}
+        {error.error && <p className='form__error'>{error.error}</p>}
             <input
                 type="text"
                 placeholder="Description"
@@ -95,7 +95,10 @@ const ExpenseForm = (props) => {
                 onChange={onNoteChange}
             >
             </textarea>
-            <button>Submit</button>
+
+            <div>
+                <button className="button">Submit</button>
+            </div>
         </form>
     )
 }

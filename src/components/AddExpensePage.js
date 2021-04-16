@@ -5,14 +5,22 @@ import { startAddExpense } from '../actions/expenses';
 
 export const AddExpensePage = (props) => (
     <div>
-        <h3>Add Expense</h3>
-        <ExpenseForm 
-            expense={props.expense}
-            onSubmit={(expense) => {
-                props.startAddExpense(expense);
-                props.history.push('/'); //redirect to dashboard
-            }}
-        />
+        <div className="page-header">
+            <div className="page-container">
+                <h3 className="page-header__title">Add Expense</h3>
+            </div>
+        </div>
+        
+        <div className="content-container">
+            <ExpenseForm 
+                expense={props.expense}
+                onSubmit={(expense) => {
+                    props.startAddExpense(expense);
+                    props.history.push('/'); //redirect to dashboard
+                }}
+            />
+        </div>
+
     </div>
 );
 
